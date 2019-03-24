@@ -59,7 +59,7 @@ h2 {
   }
 
   h2 {
-    top: 65%;
+    top: 60%;
     font-size: 25px;
   }
 }
@@ -68,8 +68,10 @@ h2 {
   h1 {
     font-size: 45px;
   }
+}
 
+@media (max-height: 400px) {
   h2 {
-    font-size: 18px;
+    top: 75%;
   }
 }
