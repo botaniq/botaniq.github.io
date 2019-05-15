@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="./assets/styles/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/styles/main.css">
+</head>
+<body>
+	<!-- personal information -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="form-box">
+					<h2 class="title alert alert-secondary">Personal Information</h2>
+					<form action="#" class="form" id="personal-information">
+						<div class="form__row">
+							<div class="form__column">
+								<div class="form__cell">
+									<label for="name" class="form__label">Name</label>
+									<input type="text" name="name" id="name" class="form__input" required>
+								</div>
+								<div class="form__cell">
+									<label for="age" class="form__label">Age</label>
+									<input type="number" min="1" max="125" name="age" id="age" class="form__input" required>
+								</div>
+								<div class="form__cell">
+									<label for="country" class="form__label">Country</label>
+									<select class="browser-default custom-select form__select" id="country" required>
+											<option value="" disabled="" selected="">Choose your option</option>
+											<option value="1">Option 1</option>
+											<option value="2">Option 2</option>
+											<option value="3">Option 3</option>
+									</select>
+								</div>
+								<div class="form__cell">
+									<label for="city" class="form__label">City</label>
+									<input type="text" name="city" id="city" class="form__input" required>
+								</div>
+								<div class="form__cell">
+									<label for="country-operation" class="form__label">Country (operat.)</label>
+									<input type="text" name="country-operation" id="country-operation" class="form__input" required>
+								</div>
+							</div>
+							<div class="form__column">
+								<div class="form__cell">
+									<label for="whats-app" class="form__label">WhatsApp</label>
+									<input type="text" name="whats-app" id="whats-app" class="form__input" required>
+								</div>
+								<div class="form__cell">
+									<label for="phone-add" class="form__label">Phone Add</label>
+									<input type="tel" name="phone-add" id="phone-add" class="form__input" required>
+								</div>
+								<div class="form__cell">
+									<label for="insta" class="form__label">Insta</label>
+									<input type="text" name="insta" id="insta" class="form__input" required>
+								</div>
+								<div class="form__cell">
+									<label for="facebook" class="form__label">Facebook</label>
+									<input type="url" name="facebook" id="facebook" class="form__input" required>
+								</div>
+								<div class="form__cell">
+									<label for="email" class="form__label">Email</label>
+									<input type="email" name="email" id="email" class="form__input" required>
+								</div>
+							</div>
+						</div>
+						<div class="form__column">
+							<div class="form__cell">
+								<label for="add-inf" class="form__label form__label_wide">Add Inf.</label>
+								<input type="text" name="add-inf" id="add-inf" class="form__input form__input_wide">
+							</div>
+						</div>
+						<div class="form__buttons">
+							<button type="submit" class="btn btn-info">
+								Save
+							</button>
+							<button class="btn btn-info">
+								Edit
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- professional information -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="form-box">
+					<h2 class="title alert alert-secondary">Profession Information</h2>
+					<form action="#" class="form" id="profession-information">
+						<div class="form__row">
+							<div class="form__column">
+								<div class="form__cell">
+									<label for="profession" class="form__label">Profession</label>
+									<input type="text" name="profession" id="profession" class="form__input">
+								</div>
+								<div class="form__cell">
+									<label for="current-job" class="form__label">Current Job</label>
+									<input type="text" name="current-job" id="current-job" class="form__input">
+								</div>
+								<div class="form__cell">
+									<label for="desired-job" class="form__label">Desired Job</label>
+									<input type="text" name="desired-job" id="desired-job" class="form__input">
+								</div>
+								<div class="form__cell">
+									<label for="eng-level" class="form__label">Eng Level</label>
+									<select class="browser-default custom-select form__select" id="eng-level">
+											<option value="" disabled="" selected="">Choose your option</option>
+											<option value="1">A 1</option>
+											<option value="2">Option 2</option>
+											<option value="3">Option 3</option>
+									</select>
+								</div>
+								<div class="form__cell">
+									<label for="education" class="form__label">Education</label>
+									<input type="text" name="education" id="education" class="form__input">
+								</div>
+							</div>
+							<div class="form__column">
+								<div class="form__cell">
+									<label class="form__label form__label_short">Visas</label>
+									<ul class="form__list">
+										<li class="form__item">
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" name="visa1" value="EU" class="custom-control-input" id="eu">
+												<label class="custom-control-label" for="eu">EU</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" name="visa2" value="USA" class="custom-control-input" id="usa">
+												<label class="custom-control-label" for="usa">USA</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" name="visa3" value="China" class="custom-control-input" id="china">
+												<label class="custom-control-label" for="china">China</label>
+											</div>
+										</li>
+										<li class="form__item">
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" name="visa4" value="UK" class="custom-control-input" id="uk">
+												<label class="custom-control-label" for="uk">UK</label>
+											</div>
+											<div class="custom-control custom-checkbox">
+												<input type="checkbox" name="visa5" value="Russia" class="custom-control-input" id="russia">
+												<label class="custom-control-label" for="russia">Russia</label>
+											</div>
+											<input type="text" name="other" class="form__input-other" placeholder="Other">
+											
+										</li>
+									</ul>
+								</div>
+							
+							</div>
+						</div>
+						<div class="form__buttons">
+							<button type="submit" class="btn btn-info">
+								Save
+							</button>
+							<button class="btn btn-info">
+								Edit
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- physical parameters -->
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="form-box">
+					<h2 class="title alert alert-secondary">Physical Parameters</h2>
+					<form action="#" class="form" id="physical-parameters">
+						<div class="form__row">
+							<div class="form__column">
+								<div class="form__cell">
+									<label for="weight" class="form__label">Weight (kg)</label>
+									<input type="text" name="weight" id="weight" class="form__input">
+								</div>
+								<div class="form__cell">
+									<label for="height" class="form__label">Height (cm)</label>
+									<input type="text" name="height" id="height" class="form__input">
+								</div>
+								<div class="form__cell">
+									<label for="bust-size" class="form__label">Bust Size</label>
+									<input type="text" name="bust-size" id="bust-size" class="form__input">
+								</div>
+								<div class="form__cell">
+									<label for="bust-type" class="form__label">Bust type</label>
+									<select class="browser-default custom-select form__select" id="bust-type">
+											<option value="" disabled="" selected="">Choose</option>
+											<option value="1">Option 1</option>
+											<option value="2">Option 2</option>
+											<option value="3">Option 3</option>
+									</select>
+								</div>
+								<div class="form__cell">
+									<label for="tattoo" class="form__label">Tattoo</label>
+									<select class="browser-default custom-select form__select" id="tattoo">
+											<option value="" disabled="" selected="">Choose</option>
+											<option value="1">Option 1</option>
+											<option value="2">Option 2</option>
+											<option value="3">Option 3</option>
+									</select>
+								</div>
+							</div>
+							<div class="form__column">
+								<div class="form__cell">
+									<label for="waist" class="form__label">Waist (cm)</label>
+									<input type="text" name="waist" id="waist" class="form__input">
+								</div>
+								<div class="form__cell">
+									<label for="chest" class="form__label">Chest (cm)</label>
+									<input type="text" name="chest" id="chest" class="form__input">
+								</div>
+								<div class="form__cell">
+									<label for="hips" class="form__label">Hips (cm)</label>
+									<input type="text" name="hips" id="hips" class="form__input">
+								</div>
+								<div class="form__cell">
+									<label for="hair-color" class="form__label">Hair Color</label>
+									<select class="browser-default custom-select form__select" id="hair-color">
+											<option value="" disabled="" selected="">Choose</option>
+											<option value="1">Option 1</option>
+											<option value="2">Option 2</option>
+											<option value="3">Option 3</option>
+									</select>
+								</div>
+								<div class="form__cell">
+									<label for="eye-color" class="form__label">Eye Color</label>
+									<select class="browser-default custom-select form__select" id="eye-color">
+											<option value="" disabled="" selected="">Choose</option>
+											<option value="1">Option 1</option>
+											<option value="2">Option 2</option>
+											<option value="3">Option 3</option>
+									</select>
+								</div>
+							</div>
+							
+						</div>
+						<div class="form__buttons">
+							<button type="submit" class="btn btn-info">
+								Save
+							</button>
+							<button class="btn btn-info">
+								Edit
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="./assets/scripts/jquery-3.4.1.min.js"></script>
+	<script src="./assets/scripts/main.js"></script>
+</body>
+</html>
