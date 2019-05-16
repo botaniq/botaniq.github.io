@@ -6,7 +6,7 @@ $(document).ready(function ($) {
 	function addSlider() {
 		$('.slider').slick({
 			dots: false,
-			infinite: true,
+			infinite: false,
 			speed: 1000,
 			slidesToShow: 2,
 			centerMode: false,
@@ -172,8 +172,16 @@ $(document).ready(function ($) {
 		}
 
 
+		if (images.length == 3) {
+			console.log('hide arrow')
+			$('.slick-arrow').css( "display", "none");
+		}
+
 		if (images.length > 2) {
 			let key = $('.slick-current').attr('data-key');
+
+
+			$('.slick-current').next().addClass('slick-current');
 			$(`[data-key = ${key}]`).remove();
 			// console.log( $(`[data-key = ${key}]`));
 			// console.log(key);
