@@ -202,7 +202,7 @@ $(document).ready(function ($) {
     });
   }
 
-//   $("#upload-picture").change(readDataImg);
+
   /* video upload */
 
   var video = [];
