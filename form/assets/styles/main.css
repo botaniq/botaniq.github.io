@@ -521,7 +521,7 @@
 .video__img {
 	width: 102px;
 	height: 71px;
-	display: none;
+	/* display: none; */
 }
 
 
@@ -530,14 +530,42 @@
 }
 
 .video__btn {
-	display: none;
+	/* display: none; */
 	margin-left: 17px;
 }
 
 
+.video__img-box {
+	width: 245px;
+	display: flex;
+	justify-content: space-between;
+}
 
+.video__buttons {
+	width: 255px;
+	display: flex;
+	/* justify-content: space-around; */
+}
 
+.video__btn1 {
+	margin-left: 28px;
+}
 
+.video__btn2 {
+	margin-left: 70px;
+}
+
+.video__img1,
+.video__img2,
+.video__btn1,
+.video__btn2 {
+	display: none;
+}
+
+video {
+	width: 200px;
+	height: 200px;
+}
 
 
 /*--------- @media query ---------*/
