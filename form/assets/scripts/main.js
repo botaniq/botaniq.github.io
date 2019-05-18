@@ -27,26 +27,34 @@ $(document).ready(function ($) {
 		let files = [...this.files];
 
 		// Images - PNG, JPG, JPEG. Max size - 10 mb
-		files = files.filter( item => {
+		let sortFiles = files.filter( item => {
 			return item.size < 10000000 && (item.type.startsWith('image/jpeg') || item.type.startsWith('image/jpg') || item.type.startsWith('image/png'));	
 		});
 
-		images = images.concat(files);
+		if (sortFiles.length != files.length) {
+			alert('Images - PNG, JPG, JPEG. Max size - 10 mb');
+		}
+
+		images = images.concat(sortFiles);
 
 		// Images - max images count - 10.
 		if (images.length > 10) {
+			alert('Max images count - 10!');
 			images.length = 10;
 		}
 
-		renderImages();
+		renderGallery();
 		
-		//To clear FileList
+		//To clear FileList (doesn't work on iPhone)
+
+		// $('#upload-picture').attr('type', 'text');
+		// $('#upload-picture').attr('type', 'file');
 
 		// console.log('readDataImg :');
 		// console.log(images);
 	}
 
-	function renderImages() {
+	function renderGallery() {
 		// To clear styles of gallery
 		$('.gallery').hide();
 		$( '.gallery' ).css( "width", "auto");
@@ -56,13 +64,18 @@ $(document).ready(function ($) {
 		$('.gallery__img' ).removeClass( "gallery__img_mobile");
 		$('.gallery__buttons').empty();
 		$('.gallery__buttons').removeClass( "gallery__buttons_mobile-one gallery__buttons_mobile");
-		
 
+		// Add spinner
+		$('.spinner' ).addClass( "spinner_active");
+
+		
 		// Render images
 		if (images) {
 			for (let i = 0; i < images.length; i++) {
 				let reader = new FileReader();
 				$(reader).load(function(e) { 
+
+					// Add class to img for mobile
 					if (images.length == 1) {
 						$('.slider').append(
 							`<img src="${e.target.result}" alt="image${i + 1}" data-key="${i}" class="gallery__img gallery__slide gallery__img_mobile">`
@@ -103,17 +116,44 @@ $(document).ready(function ($) {
 		if (images.length > 2) {
 			$( '.gallery' ).css( "width", "245");
 			$( '.gallery__buttons' ).addClass( "gallery__buttons_mobile");
+
 			setTimeout(addSlider, images.length * 1000);
 		}
 
 		// Show gallery
 		setTimeout(function() {
+			// Remove spinner
+			$('.spinner' ).removeClass( "spinner_active");
 			$(".gallery").show("slow");
 		}, images.length * 1000);
 
 		addHandlersToButtons();
 	}
 
+
+	function removeSlide(key, index) {
+		$('.slider').slick('slickRemove', index);
+
+		if (key) {
+			images.splice(key, 1);
+		}
+	}
+
+	function updateSlideIndex() {
+
+		// Update index of data-attribute 
+		let i = 0;
+		$('.slick-slide').each(function(){
+			$(this).attr("data-slick-index",i);
+			i++;
+		});
+
+		i = 0;
+		$('.slick-slide').each(function(){
+			$(this).attr("data-key",i);
+			i++;
+		});
+	}
 
 
 	function addHandlersToButtons() {
@@ -142,25 +182,8 @@ $(document).ready(function ($) {
 				let key = $('.slick-current').attr('data-key'),
 					removeInex = $('.slick-current').attr('data-slick-index');
 	
-				// Remove slide	
-				$('.slider').slick('slickRemove', removeInex);
-
-				if (key) {
-					images.splice(key, 1);
-				}
-
-				// Update index of data-attribute 
-				let i = 0;
-				$('.slick-slide').each(function(){
-					$(this).attr("data-slick-index",i);
-					i++;
-				});
-
-				i = 0;
-				$('.slick-slide').each(function(){
-					$(this).attr("data-key",i);
-					i++;
-				});
+				removeSlide(key, removeInex);
+				updateSlideIndex();
 
 				// Move slider when second to last slide has deleted
 				if ( ( +key + 1 ) == images.length) {
@@ -172,8 +195,6 @@ $(document).ready(function ($) {
 			// console.log(images);
 		});
 	
-	
-
 		// Handler to 'Delete' button on the left
 		$('.gallery__btn2').on('click', function(){
 
@@ -197,25 +218,8 @@ $(document).ready(function ($) {
 				let key = $('.slick-current').next().attr('data-key'),
 					removeInex = $('.slick-current').next().attr('data-slick-index');
 	
-				// Remove slide	
-				$('.slider').slick('slickRemove', removeInex);
-
-				if (key) {
-					images.splice(key, 1);
-				}
-
-				// Update index of data-attribute 
-				let i = 0;
-				$('.slick-slide').each(function(){
-					$(this).attr("data-slick-index",i);
-					i++;
-				});
-
-				i = 0;
-				$('.slick-slide').each(function(){
-					$(this).attr("data-key",i);
-					i++;
-				});
+				removeSlide(key, removeInex);
+				updateSlideIndex();
 
 				// Move slider when second to last slide has deleted
 				if ( +key == images.length) {
@@ -231,18 +235,6 @@ $(document).ready(function ($) {
 	$("#upload-picture").change(readDataImg);
 
 
-
-
-	
-
-
-
-
-
-
-
-
-
 	/* video upload */
 
 	let video = [];
@@ -250,10 +242,10 @@ $(document).ready(function ($) {
 	function readDataVideo() {
 		let files = [...this.files];
 
-		console.log(files);
+		// console.log(files);
 
 		// Video - AVI, MP4, WMV, MOV, MKV, 3gp.
-		files = files.filter( item => {
+		let sortFiles = files.filter( item => {
 			return item.type.startsWith('video/avi') || 
 				item.type.startsWith('video/mp4') || 
 				item.type.startsWith('video/wmv') ||
@@ -263,76 +255,48 @@ $(document).ready(function ($) {
 		});
 
 		// Min size - 10mb, max size - 40 mb.
-		files = files.filter( item => {
+		sortFiles = files.filter( item => {
 			return item.size > 10000000 && item.size < 40000000;	
 		});
 
-		video = video.concat(files);
+		if (sortFiles.length != files.length) {
+			alert('Video - AVI, MP4, WMV, MOV, MKV, 3gp. \n Min size - 10mb, max size - 40 mb.');
+		}
+
+		video = video.concat(sortFiles);
 
 		// Max video count - 2.
-		if (video.video > 2) {
-			video.video = 2;
+		if (video.length > 2) {
+			alert('Max video count - 2.');
+			video.length = 2;
 		}
 
 		renderVideo();
 		
-		//To clear FileList
-		$('#upload-video').attr('type', 'text');
-		$('#upload-video').attr('type', 'file');
-		
-		// console.log('readDataImg :');
-		// console.log(images);
-
-
-		console.log(video);
+		//To clear FileList (doesn't work on iPhone)
+		// $('#upload-video').attr('type', 'text');
+		// $('#upload-video').attr('type', 'file');
+	
+		// console.log('Video array');
+		// console.log(video);
 	}
 
 
 	function renderVideo() {
-		
-
 		if (video.length == 1) {
 			$('.video__img1').css( "display", "block");
 			$( '.video__btn1' ).css( "display", "block");
 		} else if (video.length == 2){
+			$('.video__img1').css( "display", "block");
+			$( '.video__btn1' ).css( "display", "block");
 			$('.video__img2').css( "display", "block");
 			$( '.video__btn2' ).css( "display", "block");
 		}
-
-
-		// // Render images
-		// if (video) {
-		// 	for (let i = 0; i < video.length; i++) {
-		// 		let reader = new FileReader();
-		// 		$(reader).load(function(e) { 
-					
-		// 			$('.video__img-box').append(
-		// 				`<video src="${e.target.result}" controls poster="./assets/images/video.png"></video>`
-		// 			);
-					
-		// 		});
-		// 		reader.readAsDataURL(video[i]);
-		// 	}
-		// }
-
-		
-
-		
-
-
 	}
 	
-
-
-
-
-
 	$("#upload-video").change(readDataVideo);
 
-
 	/* --- delete video --- */
-
-
 
 	// Handler to 'Delete' button on the right
 	$('.video__btn1').on('click', function(){
@@ -352,13 +316,9 @@ $(document).ready(function ($) {
 			video.shift();
 		}
 	
-		
-		
-		console.log('Click on btn - 1');
-		console.log(video);
+		// console.log('Click on btn - 1');
+		// console.log(video);
 	});
-
-
 
 	// Handler to 'Delete' button on the left
 	$('.video__btn2').on('click', function(){
@@ -377,30 +337,7 @@ $(document).ready(function ($) {
 			video.pop();
 		}
 
-		
-		
-		console.log('Click on btn - 2');	
-		console.log(video);
+		// console.log('Click on btn - 2');	
+		// console.log(video);
 	});
-
-
-
-	// $('.video__btn').on('click', function(){
-	// 	let video = $("#upload-video")[0];
-
-	// 	console.log(video.files);
-
-	// 	delete video.files[0];
-
-	// 	console.log(video.files);
-		
-	// });
-
-
-
-	
-
-
-
-
 });
