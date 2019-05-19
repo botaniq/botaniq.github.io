@@ -242,16 +242,18 @@ $(document).ready(function ($) {
 	function readDataVideo() {
 		let files = [...this.files];
 
-		// console.log(files);
+		console.log(files);
 
-		// Video - AVI, MP4, WMV, MOV, MKV, 3gp. Min size - 10mb, max size - 40 mb.
+		// Video - AVI, MP4, WMV, MOV, MKV, 3gp. Max size - 40 mb.
 		let sortFiles = files.filter( item => {
 			return  item.size < 40000000 && 
 					(item.type.startsWith('video/avi') || 
 					item.type.startsWith('video/mp4') || 
 					item.type.startsWith('video/wmv') ||
 					item.type.startsWith('video/mov') || 
-					item.type.startsWith('video/mkv') ||	
+					item.type.startsWith('video/quicktime') || 
+					item.type.startsWith('video/mkv') ||
+					item.type.startsWith('video/x-matroska') ||	
 					item.type.startsWith('video/3gp'));
 		});
 
