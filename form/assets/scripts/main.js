@@ -247,12 +247,12 @@ $(document).ready(function ($) {
 		// Video - AVI, MP4, WMV, MOV, MKV, 3gp. Min size - 10mb, max size - 40 mb.
 		let sortFiles = files.filter( item => {
 			return (item.size > 10000000 && item.size < 40000000) && 
-					item.type.startsWith('video/avi') || 
+					(item.type.startsWith('video/avi') || 
 					item.type.startsWith('video/mp4') || 
 					item.type.startsWith('video/wmv') ||
 					item.type.startsWith('video/mov') || 
 					item.type.startsWith('video/mkv') ||	
-					item.type.startsWith('video/3gp');
+					item.type.startsWith('video/3gp'));
 		});
 
 		// Min size - 10mb, max size - 40 mb.

@@ -29,7 +29,12 @@
 
 
 .form__label {
-	width: 100px;
+
+	display: inline-flex;
+	min-width: 100px;
+
+
+	/* width: 100px; */
 	margin: 0;
 	font-size: 16px;
 	font-weight: bold;
@@ -105,8 +110,17 @@
 }
 
 .form__buttons button {
-	width: 140px;
+	min-width: 140px;
 	margin: 0;
+
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	
+	height: 38px;
+	
+
 }
 
 
@@ -397,9 +411,13 @@
 
 
 .form__upload {
-	display: block;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+
 	margin: 0;
-	width: 140px;
+	min-width: 140px;
 	height: 38px;
 	cursor: pointer;
 }
@@ -417,13 +435,7 @@
 
 
 
-.form__gallery {
-	/* min-width: 0; */
-	/* margin-left: 40px; */
-	/* width: 500px !important; */
-	/* width: 245px !important; */
-	/* overflow: hidden; */
-}
+
 
 .gallery__slide {
 	margin-right: 36px;
