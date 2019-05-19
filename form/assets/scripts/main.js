@@ -244,20 +244,21 @@ $(document).ready(function ($) {
 
 		// console.log(files);
 
-		// Video - AVI, MP4, WMV, MOV, MKV, 3gp.
+		// Video - AVI, MP4, WMV, MOV, MKV, 3gp. Min size - 10mb, max size - 40 mb.
 		let sortFiles = files.filter( item => {
-			return item.type.startsWith('video/avi') || 
-				item.type.startsWith('video/mp4') || 
-				item.type.startsWith('video/wmv') ||
-				item.type.startsWith('video/mov') || 
-				item.type.startsWith('video/mkv') ||	
-				item.type.startsWith('video/3gp');
+			return (item.size > 10000000 && item.size < 40000000) && 
+					item.type.startsWith('video/avi') || 
+					item.type.startsWith('video/mp4') || 
+					item.type.startsWith('video/wmv') ||
+					item.type.startsWith('video/mov') || 
+					item.type.startsWith('video/mkv') ||	
+					item.type.startsWith('video/3gp');
 		});
 
 		// Min size - 10mb, max size - 40 mb.
-		sortFiles = files.filter( item => {
-			return item.size > 10000000 && item.size < 40000000;	
-		});
+		// let sortFiles = files.filter( item => {
+		// 	return item.size > 10000000 && item.size < 40000000;	
+		// });
 
 		if (sortFiles.length != files.length) {
 			alert('Video - AVI, MP4, WMV, MOV, MKV, 3gp. \n Min size - 10mb, max size - 40 mb.');
@@ -277,8 +278,8 @@ $(document).ready(function ($) {
 		// $('#upload-video').attr('type', 'text');
 		// $('#upload-video').attr('type', 'file');
 	
-		// console.log('Video array');
-		// console.log(video);
+		console.log('Video array');
+		console.log(video);
 	}
 
 
@@ -340,4 +341,88 @@ $(document).ready(function ($) {
 		// console.log('Click on btn - 2');	
 		// console.log(video);
 	});
+
+
+
+	/*-------- Sending form data --------*/
+
+
+	// во всех запросах
+	// добавлять header
+	// Token: xxxxxxxx
+
+	// {
+	// 	photos: ['adasd','dsds'],
+	// 	videos: ['adas']
+	//    }
+
+	/* Information */
+	
+	$('.information').submit(function(e) {
+		let $form = $(this),
+			formDataObj = {};
+
+		// Get form data and add it to object
+		const formData = $form.serializeArray();
+		formData.forEach(item => {
+			formDataObj[item.name] = item.value;
+		});
+
+		console.log(formData);
+		console.log(JSON.stringify(formDataObj));
+
+		// Send form data
+		$.ajax({
+			method: 'POST',
+			type: 'POST', // For jQuery < 1.9
+			url: $form.attr('action'), // Add the correct url
+			data: JSON.stringify(formDataObj),
+			dataType: "json",
+
+			// One of these header should work
+			headers: { 'Token': 'xxxxxxxx' },
+			beforeSend: function(xhr){xhr.setRequestHeader('Token', 'xxxxxxxx');},
+		}).done(function() {
+			console.log('success');
+		}).fail(function() {
+			console.log('fail');
+		});
+
+		// Cancel the default action for the submit button
+		e.preventDefault(); 
+	});
+	
+	/* Media */
+
+	$('#media').submit(function(e) {
+		let $form = $(this),
+			formDataObj = {
+				photos: images,
+				videos: video
+			};
+
+		// console.log(formDataObj);
+		// console.log(JSON.stringify(formDataObj));
+
+		// Send form data
+		$.ajax({
+			method: 'POST',
+			type: 'POST', // For jQuery < 1.9
+			url: $form.attr('action'), // Add the correct url
+			data: JSON.stringify(formDataObj),
+			dataType: "json",
+
+			// One of these header should work
+			headers: { 'Token': 'xxxxxxxx' },
+			beforeSend: function(xhr){xhr.setRequestHeader('Token', 'xxxxxxxx');},
+		}).done(function() {
+			console.log('success');
+		}).fail(function() {
+			console.log('fail');
+		});
+
+		// Cancel the default action for the submit button
+		e.preventDefault(); 
+	});
+
 });
