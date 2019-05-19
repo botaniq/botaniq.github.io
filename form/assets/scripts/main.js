@@ -291,7 +291,8 @@ $(document).ready(function ($) {
 			$('.video__img1').css( "display", "block");
 			$( '.video__btn1' ).css( "display", "block");
 			$('.video__img2').css( "display", "block");
-			$( '.video__btn2' ).css( "display", "block");
+			$('.video__btn2').css( "display", "block");
+			$('.video__btn2').css( "margin-left", "70px");
 		}
 	}
 	
