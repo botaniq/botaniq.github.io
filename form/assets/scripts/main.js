@@ -1,12 +1,17 @@
+// Open window
+window.open('','_parent','');
+
 $(document).ready(function ($) {
+
+	// Show adn hide forms
 	$('.title').on('click', function(){
 		$(this).next().slideToggle(500);
 	});
 
 
-	/*-------- media --------*/
+	/*---------- media ----------*/
 
-	/* photo upload */
+	/*--- photo upload ---*/
 
 	let images = [];
 
@@ -46,7 +51,6 @@ $(document).ready(function ($) {
 		renderGallery();
 		
 		//To clear FileList (doesn't work on iPhone)
-
 		// $('#upload-picture').attr('type', 'text');
 		// $('#upload-picture').attr('type', 'file');
 
@@ -68,7 +72,6 @@ $(document).ready(function ($) {
 		// Add spinner
 		$('.spinner' ).addClass( "spinner_active");
 
-		
 		// Render images
 		if (images) {
 			for (let i = 0; i < images.length; i++) {
@@ -86,6 +89,7 @@ $(document).ready(function ($) {
 						);
 					}
 				});
+				
 				reader.readAsDataURL(images[i]);
 			}
 		}
@@ -124,12 +128,12 @@ $(document).ready(function ($) {
 		setTimeout(function() {
 			// Remove spinner
 			$('.spinner' ).removeClass( "spinner_active");
+
 			$(".gallery").show("slow");
 		}, images.length * 1000);
 
 		addHandlersToButtons();
 	}
-
 
 	function removeSlide(key, index) {
 		$('.slider').slick('slickRemove', index);
@@ -140,7 +144,6 @@ $(document).ready(function ($) {
 	}
 
 	function updateSlideIndex() {
-
 		// Update index of data-attribute 
 		let i = 0;
 		$('.slick-slide').each(function(){
@@ -155,9 +158,7 @@ $(document).ready(function ($) {
 		});
 	}
 
-
 	function addHandlersToButtons() {
-
 		// Handler to 'Delete' button on the right
 		$('.gallery__btn1').on('click', function(){
 
@@ -234,15 +235,12 @@ $(document).ready(function ($) {
 
 	$("#upload-picture").change(readDataImg);
 
-
-	/* video upload */
+	/*--- video upload ---*/
 
 	let video = [];
 
 	function readDataVideo() {
 		let files = [...this.files];
-
-		console.log(files);
 
 		// Video - AVI, MP4, WMV, MOV, MKV, 3gp. Max size - 40 mb.
 		let sortFiles = files.filter( item => {
@@ -256,11 +254,6 @@ $(document).ready(function ($) {
 					item.type.startsWith('video/x-matroska') ||	
 					item.type.startsWith('video/3gp'));
 		});
-
-		// Min size - 10mb, max size - 40 mb.
-		// let sortFiles = files.filter( item => {
-		// 	return item.size > 10000000 && item.size < 40000000;	
-		// });
 
 		if (sortFiles.length != files.length) {
 			alert('Video - AVI, MP4, WMV, MOV, MKV, 3gp. \n Min size - 10mb, max size - 40 mb.');
@@ -280,10 +273,9 @@ $(document).ready(function ($) {
 		// $('#upload-video').attr('type', 'text');
 		// $('#upload-video').attr('type', 'file');
 	
-		console.log('Video array');
-		console.log(video);
+		// console.log('Video array');
+		// console.log(video);
 	}
-
 
 	function renderVideo() {
 		if (video.length == 1) {
@@ -300,7 +292,7 @@ $(document).ready(function ($) {
 	
 	$("#upload-video").change(readDataVideo);
 
-	/* --- delete video --- */
+	/*--- delete video ---*/
 
 	// Handler to 'Delete' button on the right
 	$('.video__btn1').on('click', function(){
@@ -347,85 +339,138 @@ $(document).ready(function ($) {
 
 
 
-	/*-------- Sending form data --------*/
+	/*---------- Sending form data ----------*/
 
+	function sendDataToServer(formData, shouldCloseWindow=false) {
+		// Send form data
+		$.ajax({
+			method: 'POST',
+			type: 'POST', // For jQuery < 1.9
+			url: '', // Add the correct url
+			data: formData,
+			dataType: "json",
 
-	// во всех запросах
-	// добавлять header
-	// Token: xxxxxxxx
+			// One of these header should work
+			headers: { 'Token': 'xxxxxxxx' },
+			beforeSend: function(xhr){xhr.setRequestHeader('Token', 'xxxxxxxx');},
 
-	// {
-	// 	photos: ['adasd','dsds'],
-	// 	videos: ['adas']
-	//    }
+		}).done(function(data, textStatus, jqXHR) {
+			if (shouldCloseWindow) {
+				window.close();
+				alert('success');
+				$('body').css('display', 'none');
+			}
 
-	/* Information */
+			console.log('success');
+
+		}).fail(function() {
+			console.log('fail');
+		});
+	}
+
+	/*--- Information ---*/
 	
 	$('.information').submit(function(e) {
-		let $form = $(this),
-			formDataObj = {};
+		// Cancel the default action for the submit button
+		e.preventDefault(); 
+
+		let formDataObj = {};
 
 		// Get form data and add it to object
-		const formData = $form.serializeArray();
+		const formData = $(this).serializeArray();
+
 		formData.forEach(item => {
-			formDataObj[item.name] = item.value;
+			if (item.name == 'visa') {
+				if ( Array.isArray( formDataObj[item.name] ) ) {
+					formDataObj[item.name].push(item.value);
+				} else {
+					formDataObj[item.name] = [];
+					formDataObj[item.name].push(item.value);
+				}
+			} else if (item.name == 'other') {
+				if ( Array.isArray( formDataObj['visa'] ) ) {
+					formDataObj['visa'].push(item.value);
+				} else {
+					formDataObj['visa'] = [];
+					formDataObj['visa'].push(item.value);
+				}
+			} else {
+				formDataObj[item.name] = item.value;
+			}	
 		});
+
+		// sendDataToServer(JSON.stringify(formDataObj));
 
 		console.log(formData);
-		console.log(JSON.stringify(formDataObj));
-
-		// Send form data
-		$.ajax({
-			method: 'POST',
-			type: 'POST', // For jQuery < 1.9
-			url: $form.attr('action'), // Add the correct url
-			data: JSON.stringify(formDataObj),
-			dataType: "json",
-
-			// One of these header should work
-			headers: { 'Token': 'xxxxxxxx' },
-			beforeSend: function(xhr){xhr.setRequestHeader('Token', 'xxxxxxxx');},
-		}).done(function() {
-			console.log('success');
-		}).fail(function() {
-			console.log('fail');
-		});
-
-		// Cancel the default action for the submit button
-		e.preventDefault(); 
+		console.log(JSON.stringify(formDataObj));	
 	});
 	
-	/* Media */
+	/*--- Media ---*/
 
-	$('#media').submit(function(e) {
-		let $form = $(this),
-			formDataObj = {
-				photos: images,
-				videos: video
-			};
+	function convertToBase64(mediaArr) {
+		let mediaBase64 = [];
 
-		// console.log(formDataObj);
-		// console.log(JSON.stringify(formDataObj));
+		if (mediaArr) {
+			for (let i = 0; i < mediaArr.length; i++) {
+				let reader = new FileReader();
+				
+				$(reader).load(function(e) { 
+					mediaBase64.push(e.target.result);
+				});
+				
+				reader.readAsDataURL(images[i]);
+			}
 
-		// Send form data
-		$.ajax({
-			method: 'POST',
-			type: 'POST', // For jQuery < 1.9
-			url: $form.attr('action'), // Add the correct url
-			data: JSON.stringify(formDataObj),
-			dataType: "json",
+			return mediaBase64;
+		}
+	}
 
-			// One of these header should work
-			headers: { 'Token': 'xxxxxxxx' },
-			beforeSend: function(xhr){xhr.setRequestHeader('Token', 'xxxxxxxx');},
-		}).done(function() {
-			console.log('success');
-		}).fail(function() {
-			console.log('fail');
-		});
-
+	$('.media-submit').on('click', function(e) {
 		// Cancel the default action for the submit button
-		e.preventDefault(); 
+		e.preventDefault();
+
+		let buttonValue = $(this)[0].value;
+
+		console.log(buttonValue);
+
+		let formDataObj = {
+			photos: convertToBase64(images),
+			videos: convertToBase64(video)
+		};
+
+		// console.log(formDataObj.photos.length);
+		// console.log(formDataObj.videos.length);
+
+		let intervalId = setInterval(function() {
+			if (formDataObj.photos.length == images.length && formDataObj.videos.length == video.length) {
+
+				console.log(formDataObj.photos.length);
+				console.log(formDataObj.videos.length);
+
+				console.log(formDataObj);
+				console.log(JSON.stringify(formDataObj));
+
+				if (buttonValue === 'publish') {
+					sendDataToServer(JSON.stringify(formDataObj), true);
+					clearInterval(intervalId);
+				} else {
+					sendDataToServer( JSON.stringify(formDataObj) );
+					clearInterval(intervalId);
+				}
+				
+				clearInterval(intervalId);
+				
+			}
+		}, 1000);
 	});
 
+
+	/*---------- Add handler to Edit button ----------*/
+
+	$( "input" ).prop( "disabled", true ); //Disable
+	$( "select" ).prop( "disabled", true ); //Disable
+
+	$('.media-submit').on('click', function(e) {
+
+	}
 });
