@@ -286,7 +286,7 @@ $(document).ready(function ($) {
 			$( '.video__btn1' ).css( "display", "block");
 			$('.video__img2').css( "display", "block");
 			$('.video__btn2').css( "display", "block");
-			$('.video__btn2').css( "margin-left", "70px");
+			$('.video__btn2').css( "margin-left", "67px");
 		}
 	}
 	
@@ -467,10 +467,42 @@ $(document).ready(function ($) {
 
 	/*---------- Add handler to Edit button ----------*/
 
-	$( "input" ).prop( "disabled", true ); //Disable
-	$( "select" ).prop( "disabled", true ); //Disable
 
-	$('.media-submit').on('click', function(e) {
-
+	function setDisabledStyle(tag, value) {
+		$(tag).prop( "disabled", value );
 	}
+
+	// Add to all inputs and selects attribute disabled  
+	setDisabledStyle('input', true);
+	setDisabledStyle('select', true);
+
+	$('.form__upload').addClass('disabled');
+	$('.form__upload').css('cursor', 'default');
+
+	$('.edit').on('click', function(e) {
+		// Cancel the default action for the submit button
+		e.preventDefault();
+
+		let form = $(this)[0].parentNode.parentNode,
+			allInput;
+
+		$(form).each(function(){
+			allInput = $(this).find(':input');
+		});
+
+		for (let i = 0; i < allInput.length; i++) {
+			if (allInput[i].tagName == 'BUTTON') {
+				continue;
+			}
+
+			if ($(allInput[i]).hasClass('form__upload-input')) {
+				let uploadButton = allInput[i].parentNode;
+				
+				$(uploadButton).removeClass('disabled');
+				$(uploadButton).css('cursor', 'pointer');
+			}
+
+			setDisabledStyle(allInput[i], false);
+		}
+	});
 });
