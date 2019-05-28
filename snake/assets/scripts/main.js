@@ -51,7 +51,11 @@ function gameOver() {
 
 
 
-
+function circle(x, y, radius, fillCircle) {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+    fillCircle ? ctx.fill() : ctx.stroke();
+}
 
 
 class Block {
@@ -75,15 +79,22 @@ class Block {
         ctx.fillStyle = color;
         circle(centerX, centerY, blockSize / 2, true);
     }
+
+    equal(otherBlock) {
+        return this.col === otherBlock.col && this.row === otherBlock.row;
+    }
 }
 
 
 let block = new Block(4, 4);
 
-console.log(block);
+
 
 block.drawSquare('red');
 
 
-let circle = new Block(4, 3);
-circle.drawCircle('Green');
+let circles = new Block(4, 3);
+circles.drawCircle('Green');
+
+
+let circles2 = new Block(4, 3);
