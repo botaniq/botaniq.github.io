@@ -1,4 +1,3 @@
-
 // Canvas
 const canvas = document.getElementById('canvas'),
       ctx = canvas.getContext('2d');
@@ -13,6 +12,7 @@ let blockSize = 10,
 
 let score = 0;
 
+// Functions
 function drawBorder() {
     ctx.fillStyle = "Gray";
     ctx.fillRect(0, 0, width, blockSize);
@@ -30,7 +30,7 @@ function drawScore() {
 }
 
 function gameOver() {
-    // clearInterval(intervalId);
+    clearInterval(intervalId);
     ctx.font = '50px Comic Sans MS';
     ctx.fillStyle = 'Gray';
     ctx.textAlign = 'center';
@@ -38,26 +38,13 @@ function gameOver() {
     ctx.fillText('Game over!', width / 2, height / 2);
 }
 
-// drawBorder();
-// drawScore();
-// gameOver();
-
-// setInterval(function() {
-//     score++;
-//     ctx.clearRect(0, 0, width, height);
-//     drawBorder();
-//     drawScore();
-// }, 100)
-
-
-
 function circle(x, y, radius, fillCircle) {
     ctx.beginPath();
     ctx.arc(x, y, radius, 0, Math.PI * 2, false);
     fillCircle ? ctx.fill() : ctx.stroke();
 }
 
-
+// Classes
 class Block {
     constructor(col, row) {
         this.col = col;
@@ -85,22 +72,6 @@ class Block {
     }
 }
 
-
-let block = new Block(4, 4);
-
-
-
-block.drawSquare('red');
-
-
-let circles = new Block(4, 3);
-circles.drawCircle('Green');
-
-
-let circles2 = new Block(4, 3);
-
-
-
 class Snake {
     constructor() {
         this.segments = [
@@ -119,7 +90,7 @@ class Snake {
         }
     }
 
-    checkCollision() {
+    checkCollision(head) {
         let leftCollision = head.col === 0,
             topCollision = head.row === 0,
             rightCollision = head.col === widthInBlocks - 1,
@@ -142,6 +113,8 @@ class Snake {
             newHead;
 
         this.direction = this.nextDirection;
+
+        // console.log(this.direction);
 
         switch (this.direction) {
             case 'right':
@@ -171,12 +144,74 @@ class Snake {
         } else {
             this.segments.pop();
         }
+    }
 
+    setDirection(newDirection) {
+        if (this.direction === 'up' && newDirection === 'down') {
+            return;
+        } else if (this.direction === 'left' && newDirection === 'right') {
+            return;
+        } else if (this.direction === 'down' && newDirection === 'up') {
+            return;
+        } else if (this.direction === 'right' && newDirection === 'left') {
+            return;
+        }
 
-
+        this.nextDirection = newDirection;
+        // console.log(this.newDirection );
     }
 }
 
-// let snake = new Snake();
+class Apple {
+    constructor() {
+        this.position = new Block(10, 10);
+    }
 
-// snake.draw();
+    draw() {
+        this.position.drawCircle('LimeGreen');
+    }
+
+    move() {
+        let randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1,
+            randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
+        
+        this.position = new Block(randomCol, randomRow);
+    }       
+
+}
+
+// Create objects
+
+let snake = new Snake();
+let apple = new Apple();
+
+
+let intervalId = setInterval(function() {
+    ctx.clearRect(0, 0, width, height);
+    drawScore();
+
+    snake.move();
+    snake.draw();
+    apple.draw();
+
+    drawBorder();
+}, 100)
+
+
+const directions = {
+    37: 'left',
+    38: 'up',
+    39: 'right',
+    40: 'down'
+};
+
+const body = document.getElementsByTagName('body')[0];
+
+body.addEventListener('keydown', function(e) {
+    let newDirection = directions[e.keyCode];
+
+    if (newDirection) {
+        // console.log(newDirection);
+        snake.setDirection(newDirection);
+    }
+});
