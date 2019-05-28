@@ -98,3 +98,85 @@ circles.drawCircle('Green');
 
 
 let circles2 = new Block(4, 3);
+
+
+
+class Snake {
+    constructor() {
+        this.segments = [
+            new Block(7, 5),
+            new Block(6, 5),
+            new Block(5, 5)
+        ];
+
+        this.direction = 'right';
+        this.nextDirection = 'right';
+    }
+
+    draw() {
+        for (let i = 0; i < this.segments.length; i++) {
+            this.segments[i].drawSquare('Green');
+        }
+    }
+
+    checkCollision() {
+        let leftCollision = head.col === 0,
+            topCollision = head.row === 0,
+            rightCollision = head.col === widthInBlocks - 1,
+            bottomCollision = head.row === heightInBlocks - 1;
+
+        let wallCollision = leftCollision || topCollision || rightCollision || bottomCollision,
+            selfCollision = false;
+
+        for (let i = 0; i < this.segments.length; i++) {
+            if ( head.equal(this.segments[i]) ) {
+                selfCollision = true;
+            }
+        }
+
+        return wallCollision || selfCollision;
+    }
+
+    move() {
+        let head = this.segments[0],
+            newHead;
+
+        this.direction = this.nextDirection;
+
+        switch (this.direction) {
+            case 'right':
+                newHead = new Block(head.col + 1, head.row);
+                break;
+            case 'down':
+                newHead = new Block(head.col, head.row + 1);
+                break;
+            case 'left':
+                newHead = new Block(head.col - 1, head.row);
+                break;
+            case 'up':
+                newHead = new Block(head.col, head.row - 1);
+                break;
+        }
+
+        if ( this.checkCollision(newHead) ) {
+            gameOver();
+            return;
+        }
+
+        this.segments.unshift(newHead);
+
+        if ( newHead.equal(apple.position) ) {
+            score++;
+            apple.move();
+        } else {
+            this.segments.pop();
+        }
+
+
+
+    }
+}
+
+// let snake = new Snake();
+
+// snake.draw();
