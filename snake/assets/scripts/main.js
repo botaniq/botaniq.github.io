@@ -5,6 +5,9 @@ const canvas = document.getElementById('canvas'),
 let width = canvas.width,
     height = canvas.height;
 
+
+let timerId;
+
 // Create cells
 let blockSize = 10,
     widthInBlocks = width / blockSize,
@@ -30,7 +33,7 @@ function drawScore() {
 }
 
 function gameOver() {
-    clearInterval(intervalId);
+    clearTimeout(timerId);
     ctx.font = '50px Comic Sans MS';
     ctx.fillStyle = 'Gray';
     ctx.textAlign = 'center';
@@ -85,8 +88,18 @@ class Snake {
     }
 
     draw() {
-        for (let i = 0; i < this.segments.length; i++) {
-            this.segments[i].drawSquare('Green');
+        this.segments[0].drawSquare('#C8E814');
+        let isEvenSegment = false;
+
+        for (let i = 1; i < this.segments.length; i++) {
+            
+            if (isEvenSegment) {
+                this.segments[i].drawSquare('Yellow');
+            } else {
+                this.segments[i].drawSquare('Orange');
+            }
+
+            isEvenSegment = !isEvenSegment;
         }
     }
 
@@ -140,7 +153,36 @@ class Snake {
 
         if ( newHead.equal(apple.position) ) {
             score++;
-            apple.move();
+            if (animationTime > 50) {
+                animationTime -= 1;
+            }
+            console.log(this.segments);
+            // console.log( apple.move())
+            
+            let isOnSnake = true;
+            
+            
+
+            outer: while (isOnSnake) {
+                let position = apple.move();
+
+                for (let i = 0; i < this.segments; i++) {
+                    if (position.col === this.segments[i].col && position.row === this.segments[i].row) {
+                        continue outer;
+                    }
+                }
+
+                isOnSnake = false;
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            ;
         } else {
             this.segments.pop();
         }
@@ -175,7 +217,7 @@ class Apple {
         let randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1,
             randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
         
-        this.position = new Block(randomCol, randomRow);
+        return this.position = new Block(randomCol, randomRow);
     }       
 
 }
@@ -186,7 +228,21 @@ let snake = new Snake();
 let apple = new Apple();
 
 
-let intervalId = setInterval(function() {
+// let intervalId = setInterval(function() {
+//     ctx.clearRect(0, 0, width, height);
+//     drawScore();
+
+//     snake.move();
+//     snake.draw();
+//     apple.draw();
+
+//     drawBorder();
+// }, 100)
+
+
+let animationTime = 100;
+
+function gameLoop() {
     ctx.clearRect(0, 0, width, height);
     drawScore();
 
@@ -195,8 +251,12 @@ let intervalId = setInterval(function() {
     apple.draw();
 
     drawBorder();
-}, 100)
 
+    timerId = setTimeout(gameLoop, animationTime);
+}
+
+
+gameLoop();
 
 const directions = {
     37: 'left',
