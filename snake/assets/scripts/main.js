@@ -153,36 +153,12 @@ class Snake {
 
         if ( newHead.equal(apple.position) ) {
             score++;
+            
             if (animationTime > 50) {
                 animationTime -= 1;
             }
-            console.log(this.segments);
-            // console.log( apple.move())
             
-            let isOnSnake = true;
-            
-            
-
-            outer: while (isOnSnake) {
-                let position = apple.move();
-
-                for (let i = 0; i < this.segments; i++) {
-                    if (position.col === this.segments[i].col && position.row === this.segments[i].row) {
-                        continue outer;
-                    }
-                }
-
-                isOnSnake = false;
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            ;
+            apple.move(this.segments);
         } else {
             this.segments.pop();
         }
@@ -213,11 +189,19 @@ class Apple {
         this.position.drawCircle('LimeGreen');
     }
 
-    move() {
+    move(occupiedBlocks) {
         let randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1,
             randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
         
-        return this.position = new Block(randomCol, randomRow);
+        this.position = new Block(randomCol, randomRow);
+
+        // Check to see if apple has been moved to a block currently occupied by the snake
+        for (var i = 0; i < occupiedBlocks.length; i++) {
+            if (this.position.equal(occupiedBlocks[i])) {
+                this.move(occupiedBlocks); // Call the move method again
+                return;
+            }
+        }
     }       
 
 }
