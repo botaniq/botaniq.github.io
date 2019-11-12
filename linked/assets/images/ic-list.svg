@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="22px" viewBox="0 0 28 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>39902FA7-A16B-4180-8B80-1B244DAD1131</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="features_1" transform="translate(-165.000000, -3339.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="Group-6-Copy" transform="translate(165.000000, 3338.000000)">
+                <g id="ic_list" transform="translate(0.000000, 1.000000)">
+                    <path d="M25.9,19 L9.100447,19 C7.94048531,19 7,19.6718085 7,20.5003191 C7,21.3281915 7.94048531,22 9.100447,22 L25.9,22 C27.0595147,22 28,21.3281915 28,20.5003191 C28,19.6721277 27.0595147,19 25.9,19 Z" id="Shape"></path>
+                    <path d="M25.9,10 L9.100447,10 C7.94048531,10 7,10.6715608 7,11.5001596 C7,12.3284392 7.94048531,13 9.100447,13 L25.9,13 C27.0595147,13 28,12.3284392 28,11.5001596 C28,10.67188 27.0595147,10 25.9,10 Z" id="Shape"></path>
+                    <path d="M9.100447,4 L25.9,4 C27.0595147,4 28,3.3284392 28,2.49984041 C28,1.67124162 27.0595147,1 25.9,1 L9.100447,1 C7.94048531,1 7,1.6715608 7,2.49984041 C7,3.32812001 7.94048531,4 9.100447,4 Z" id="Shape"></path>
+                    <circle id="Oval" cx="2" cy="2" r="2"></circle>
+                    <circle id="Oval" cx="2" cy="11" r="2"></circle>
+                    <circle id="Oval" cx="2" cy="20" r="2"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

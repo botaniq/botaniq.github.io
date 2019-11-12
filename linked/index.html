@@ -1,0 +1,667 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Linkedator - LinkedIn automation tool</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index">
+    <meta name="description" content="The first solution to automate invitations on LinkedIn.">
+
+    <!--OG-->
+    <!--<meta property="og:type" content="website">-->
+    <!--<meta property="og:site_name" content="Название сайта">-->
+    <meta property="og:title" content="Linkedator - LinkedIn automation tool">
+    <meta property="og:description" content="The first solution to automate invitations on LinkedIn.">
+    <meta property="og:url" content="https://linkedator.com/">
+    <!--<meta property="og:locale" content="ru_RU">-->
+    <meta property="og:image" content="assets/images/preview_linkedator.png">
+    <!--<meta property="og:image:width" content="968">-->
+    <!--<meta property="og:image:height" content="504">-->
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/styles/bootstrap-grid.css">
+    <link rel="stylesheet" href="assets/styles/animate.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <!-- Hotjar Tracking Code for https://linkedator.com -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1104954,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132822632-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-132822632-1');
+    </script>
+
+</head>
+<body>
+    <section class="main-block" id="home">
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="header__box">
+                            <a class="logo" href="#home">
+                                <span>
+                                  <img src="assets/images/logo-header.svg" alt="logo" class="logo__img">
+                                </span>
+                                <div class="logo__title">Linkedator</div>
+                            </a>
+                            <nav class="menu menu_closed menu_nojs">
+                                <div class="menu__button">
+                                    <button class="menu__toggle" type="button"></button>
+                                </div>
+                                <ul class="menu__list">
+                                    <li class="menu__item">
+                                        <a href="#promo" class="menu__link" data-i18n='menu-link1'></a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a href="#product" class="menu__link" data-i18n='menu-link2'></a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a href="#features" class="menu__link" data-i18n='menu-link3'></a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a href="#testimonials" class="menu__link" data-i18n='menu-link4'></a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a href="#prices" class="menu__link" data-i18n='menu-link5'></a>
+                                    </li>
+                                    <li class="menu__item menu__item_language">
+                                        <a href="#switchLanguage" class="menu__link" data-i18n='menu-link6'></a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a href="http://bit.ly/2sKczo9" class="button button_try-for-free" data-i18n='button-try-for-free'></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <a href="http://bit.ly/2sKczo9" class="button button_try-for-free" data-i18n='button-try-for-free'></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="offer" id="offer">
+                        <h1 class="offer__title" data-i18n='title'></h1>
+                        <p class="offer__text" data-i18n='offer'></p>
+                        <div class="offer__button-block">
+                            <a href="http://bit.ly/2sKczo9" class="offer__button button"  data-i18n='start'></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-block__img-block" id="imgNetwork">
+            <img src="assets/images/img-network-empty.svg" alt="img-network" class="main-block__img-network">
+            <img src="assets/images/profile.svg" alt="img-profile" class="main-block__img-profile main-block__img-profile_1" id="profile-1">
+            <img src="assets/images/profile.svg" alt="img-profile" class="main-block__img-profile main-block__img-profile_2" id="profile-2">
+            <img src="assets/images/profile.svg" alt="img-profile" class="main-block__img-profile main-block__img-profile_3" id="profile-3">
+            <img src="assets/images/profile.svg" alt="img-profile" class="main-block__img-profile main-block__img-profile_4" id="profile-4">
+            <img src="assets/images/profile.svg" alt="img-profile" class="main-block__img-profile main-block__img-profile_5" id="profile-5">
+            <img src="assets/images/profile.svg" alt="img-profile" class="main-block__img-profile main-block__img-profile_6" id="profile-6">
+            <img src="assets/images/profile.svg" alt="img-profile" class="main-block__img-profile main-block__img-profile_7" id="profile-7">
+            <img src="assets/images/profile.svg" alt="img-profile" class="main-block__img-profile main-block__img-profile_8" id="profile-8">
+        </div>
+        <img src="assets/images/img-network.svg"
+             alt="img-network" class="main-block__img main-block__img_bottom main-block__img_bottom-full" id="imgNetworkFull">
+        <img src="assets/images/img-floating-macbook.png"
+            srcset="assets/images/img-floating-macbook@2x.png 2x, assets/images/img-floating-macbook@3x.png 3x"
+            alt="img-floating-macbook" class="main-block__img main-block__img_top" id="MacBook">
+        <a href="#promo" class="arrow" id="arrow"></a>
+    </section>
+    <section class="promo firstShowAnimation" id="promo">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h2 class="promo__title title" data-i18n='promo-title'></h2>
+                    <div class="promo__boxes">
+                        <div class="promo__box">
+                            <div class="promo__img-box">
+                                <img src="assets/images/img-seeker.svg" alt="icon-seeker" class="promo__img promo__img_left">
+                                <img src="assets/images/group.svg" alt="icon-job-copy" class="promo__img-background promo__img-background_left">
+                            </div>
+                            <h3 class="promo__subtitle" data-i18n='promo-subtitle1'></h3>
+                            <p class="promo__text" data-i18n='promo-text1'></p>
+                        </div>
+                        <div class="promo__box">
+                            <div class="promo__img-box">
+                                <img src="assets/images/ic-block-2-hr.svg" alt="icon-hr" class="promo__img promo__img_center">
+                                <img src="assets/images/ic-block-2-hr-copy.svg" alt="icon-hr-copy" class="promo__img-background promo__img-background_center">
+                            </div>
+                            <h3 class="promo__subtitle" data-i18n='promo-subtitle2'></h3>
+                            <p class="promo__text" data-i18n='promo-text2'></p>
+                        </div>
+                        <div class="promo__box">
+                            <div class="promo__img-box">
+                                <img src="assets/images/ic-block-2-company.svg" alt="icon-company" class="promo__img promo__img_right">
+                                <img src="assets/images/ic-block-2-company-copy.svg" alt="icon-company-copy" class="promo__img-background promo__img-background_right">
+                            </div>
+                            <h3 class="promo__subtitle" data-i18n='promo-subtitle3'></h3>
+                            <p class="promo__text" data-i18n='promo-text3'></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="product firstShowAnimation" id="product">
+        <div class="container">
+            <div class="col-xl-12">
+                <h2 class="product__title title" data-i18n='product-title'></h2>
+                <div class="product__content">
+                    <div class="product__boxes">
+                        <div class="product__box">
+                            <h3 class="product__subtitle product__subtitle_first" data-i18n='product__subtitle1'></h3>
+                            <p class="product__text" data-i18n='product__text1_1'></p>
+                            <p class="product__text" data-i18n='product__text1_2'></p>
+                            <p class="product__text" data-i18n='product__text1_3'></p>
+                        </div>
+                        <div class="product__img-box product__img-box_unlimited">
+                            <img src="assets/images/img-block-3-unlimited.svg" alt="unlimited" class="product__img product__img_unlimited">
+                        </div>
+                    </div>
+                    <div class="product__boxes">
+                        <div class="product__img-box product__img-box_offline">
+                            <img src="assets/images/img-block-3-offline.svg" alt="offline" class="product__img product__img_offline">
+                        </div>
+                        <div class="product__box">
+                            <h3 class="product__subtitle product__subtitle_second" data-i18n='product__subtitle2'></h3>
+                            <p class="product__text" data-i18n='product__text2_1'></p>
+                            <p class="product__text" data-i18n='product__text2_2'></p>
+                        </div>
+                    </div>
+                    <div class="product__boxes">
+                        <div class="product__box">
+                            <h3 class="product__subtitle product__subtitle_third" data-i18n='product__subtitle3'></h3>
+                            <p class="product__text" data-i18n='product__text3'></p>
+                            <div class="product__steps step">
+                                <div class="step__box">
+                                    <h4 class="step__title" data-i18n='step__title1'></h4>
+                                    <p class="step__text" data-i18n='step__text1'></p>
+                                </div>
+                                <div class="step__box">
+                                    <h4 class="step__title" data-i18n='step__title2'></h4>
+                                    <p class="step__text" data-i18n='step__text2'></p>
+                                </div>
+                                <div class="step__box">
+                                    <h4 class="step__title" data-i18n='step__title3'></h4>
+                                    <p class="step__text" data-i18n='step__text3'></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__img-box product__img-box_usage">
+                            <img src="assets/images/img-block-3-usage.svg" alt="usage" class="product__img product__img_usage">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features" id="features">
+        <div class="container">
+            <div class="col-xl-12">
+                <h2 class="features__title title" data-i18n='features-title'></h2>
+                <div class="features__box">
+                    <ul class="features__list">
+                        <li class="features__item features__item_active">
+                            <div class="features__subtitle" data-i18n='adding-item'></div>
+                            <div class="features__line"></div>
+                        </li>
+                        <li class="features__item">
+                            <div class="features__subtitle" data-i18n='statistic-item'></div>
+                            <div class="features__line"></div>
+                        </li>
+                        <li class="features__item">
+                            <div class="features__subtitle" data-i18n='notifications-item'></div>
+                            <div class="features__line"></div>
+                        </li>
+                        <li class="features__item">
+                            <div class="features__subtitle" data-i18n='profile-item'></div>
+                            <div class="features__line"></div>
+                        </li>
+                    </ul>
+                    <div class="features__content features__content_active">
+                        <div class="features__description features__description_feature1">
+                            <span class="features__numbering" data-i18n='features-numbering-one'></span>
+                            <h3 class="features__heading features__heading_width" data-i18n='adding-heading'></h3>
+                            <p class="features__text features__text_indent" data-i18n='adding-text'></p>
+                            <div class="add ">
+                                <div class="add__boxes slider">
+                                    <div class="add__box add__box_active animated slideInRight">
+                                        <div class="add__content">
+                                            <div class="add__heading">
+                                                <img src="assets/images/ic-search.svg" alt="ic-search" class="add__img add__img_search">
+                                                <h4 class="add__title" data-i18n='search-title'></h4>
+                                            </div>
+                                            <p class="add__text" data-i18n='search-text1'></p>
+                                            <p class="add__text" data-i18n='search-text2'></p>
+                                            <p class="add__text" data-i18n='search-text3'></p>
+                                            <div class="add__text add__example">
+                                                <span class="add__example_bold" data-i18n='search-example-title'></span>
+                                                <span data-i18n='search-example-text'></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="add__box animated slideInRight">
+                                        <div class="add__content">
+                                            <div class="add__heading">
+                                                <img src="assets/images/ic-list.svg" alt="ic-list" class="add__img add__img_list">
+                                                <h4 class="add__title" data-i18n='list-title'></h4>
+                                            </div>
+                                            <p class="add__text" data-i18n='list-text1'></p>
+                                            <p class="add__text" data-i18n='list-text2'></p>
+                                        </div>
+                                    </div>
+                                    <div class="add__box animated slideInRight">
+                                        <div class="add__content">
+                                            <div class="add__heading">
+                                                <img src="assets/images/ic-maybe-know.svg" alt="ic-maybe-know" class="add__img add__img_maybe-know">
+                                                <h4 class="add__title" data-i18n='maybe-know--title'></h4>
+                                            </div>
+                                            <p class="add__text" data-i18n='maybe-know--text'></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="add__switch">
+                                    <div class="add__circle add__circle_active"></div>
+                                    <div class="add__circle"></div>
+                                    <div class="add__circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="features__img-block features__img-block_feature1">
+                            <img src="assets/images/img-feature-1.png"
+                                 srcset="assets/images/img-feature-1@2x.png 2x, assets/images/img-feature-1@3x.png 3x"
+                                 alt="img-feature-1" class="features__img features__img_feature1">
+                            <img src="assets/images/img-feature-1-mobile.png"
+                                 srcset="assets/images/img-feature-1-mobile@2x.png 2x, assets/images/img-feature-1-mobile@3x.png 3x"
+                                 alt="img-feature-1" class="features__img features__img_mobile">
+                        </div>
+                    </div>
+                    <div class="features__content">
+                        <div class="features__description features__description_feature2">
+                            <span class="features__numbering" data-i18n='features-numbering-two'></span>
+                            <h3 class="features__heading" data-i18n='statistic-heading'></h3>
+                            <p class="features__text" data-i18n='statistic-text1'></p>
+                            <p class="features__text" data-i18n='statistic-text2'></p>
+                        </div>
+                        <div class="features__img-block features__img-block_feature2">
+                            <img src="assets/images/img-feature-2.png"
+                                 srcset="assets/images/img-feature-2@2x.png 2x, assets/images/img-feature-2@3x.png 3x"
+                                 alt="img-feature-2" class="features__img features__img_feature2">
+                            <img src="assets/images/img-feature-2-mobile.png"
+                                 srcset="assets/images/img-feature-2-mobile@2x.png 2x, assets/images/img-feature-2-mobile@3x.png 3x"
+                                 alt="img-feature-2" class="features__img features__img_mobile">
+                        </div>
+                    </div>
+                    <div class="features__content">
+                        <div class="features__description features__description_feature3">
+                            <span class="features__numbering" data-i18n='features-numbering-three'></span>
+                            <h3 class="features__heading" data-i18n='notifications-heading'></h3>
+                            <p class="features__text" data-i18n='notifications-text'></p>
+                            <ul class="notifications">
+                                <li class="notifications__item features__text"  data-i18n='notifications-item1'></li>
+                                <li class="notifications__item features__text"  data-i18n='notifications-item2'></li>
+                                <li class="notifications__item features__text"  data-i18n='notifications-item3'></li>
+                                <li class="notifications__item features__text"  data-i18n='notifications-item4'></li>
+                            </ul>
+                        </div>
+                        <div class="features__img-block features__img-block_feature3">
+                            <img src="assets/images/img-feature-3.png"
+                                 srcset="assets/images/img-feature-3@2x.png 2x, assets/images/img-feature-3@3x.png 3x"
+                                 alt="img-feature-3" class="features__img features__img_feature3">
+                            <img src="assets/images/img-feature-3-mobile.png"
+                                 srcset="assets/images/img-feature-3-mobile@2x.png 2x, assets/images/img-feature-3-mobile@3x.png 3x"
+                                 alt="img-feature-3" class="features__img features__img_mobile">
+                        </div>
+                    </div>
+                    <div class="features__content">
+                        <div class="features__description features__description_feature4">
+                            <span class="features__numbering" data-i18n='features-numbering-four'></span>
+                            <h3 class="features__heading" data-i18n='profile-heading'></h3>
+                            <p class="features__text" data-i18n='profile-text'></p>
+                        </div>
+                        <div class="features__img-block features__img-block_feature4">
+                            <img src="assets/images/img-feature-4.png"
+                                 srcset="assets/images/img-feature-4@2x.png 2x, assets/images/img-feature-4@3x.png 3x"
+                                 alt="img-feature-4" class="features__img features__img_feature4">
+                            <img src="assets/images/img-feature-4-mobile.png"
+                                 srcset="assets/images/img-feature-4-mobile@2x.png 2x, assets/images/img-feature-4-mobile@3x.png 3x"
+                                 alt="img-feature-4" class="features__img features__img_mobile">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials firstShowAnimation" id="testimonials">
+        <div class="container">
+            <div class="col-xl-12">
+                <h2 class="testimonials__title title" data-i18n='testimonials-title'></h2>
+                <div class="testimonials__content">
+                    <div class="testimonials__slider slider">
+                        <div class="review">
+                            <div class="review__header">
+                                <img src="assets/images/photo-1.png"
+                                     srcset="assets/images/photo-1@2x.png 2x, assets/images/photo-1@3x.png 3x"
+                                     alt="photo-1" class="review__img">
+                                <h3 class="review__name" data-i18n='review-name1'></h3>
+                                <p class="review__position" data-i18n='review-position1'></p>
+                            </div>
+                            <div class="review__content">
+                                <p class="review__text" data-i18n='review-text1-1'></p>
+                                <p class="review__text" data-i18n='review-text1-2'></p>
+                                <p class="review__text" data-i18n='review-text1-3'></p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="review__header">
+                                <img src="assets/images/photo-2.png"
+                                     srcset="assets/images/photo-2@2x.png 2x, assets/images/photo-2@3x.png 3x"
+                                     alt="photo-1" class="review__img">
+                                <h3 class="review__name" data-i18n='review-name2'></h3>
+                                <p class="review__position" data-i18n='review-position2'></p>
+                            </div>
+                            <div class="review__content">
+                                <p class="review__text" data-i18n='review-text2-1'></p>
+                                <p class="review__text" data-i18n='review-text2-2'></p>
+                            </div>
+                        </div>
+                        <div class="review">
+                            <div class="review__header">
+                                <img src="assets/images/photo-3.png"
+                                     srcset="assets/images/photo-3@2x.png 2x, assets/images/photo-3@3x.png 3x"
+                                     alt="photo-1" class="review__img">
+                                <h3 class="review__name" data-i18n='review-name3'></h3>
+                                <p class="review__position" data-i18n='review-position3'></p>
+                            </div>
+                            <div class="review__content">
+                                <p class="review__text" data-i18n='review-text3'></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="prices firstShowAnimation" id="prices">
+        <div class="container">
+            <div class="col-xl-12">
+                <h2 class="prices__title title" data-i18n='prices-title'></h2>
+                <div class="prices__boxes">
+                    <div class="tariff tariff_green">
+                        <h3 class="tariff__title" data-i18n='tariff-title-free'></h3>
+                        <p class="tariff__offer" data-i18n='tariff-offer-free'></p>
+                        <div class="tariff__price-block tariff__price_green" data-i18n='tariff-price-free'></div>
+                        <div class="tariff__line"></div>
+                        <input class="tariff__switch" type="checkbox" tabindex="-1">
+                        <div class="tariff__content">
+                            <div class="tariff__details-block tariff__arrow_close">
+                                <span class="tariff__details"  data-i18n='tariff-details'></span>
+                                <div class="tariff__arrow tariff__close"></div>
+                            </div>
+                            <div class="tariff__details-block tariff__arrow_open">
+                                <span class="tariff__details"  data-i18n='tariff-details'></span>
+                                <div class="tariff__arrow tariff__open"></div>
+                            </div>
+                            <ul class="tariff__list">
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-free1-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-free1'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-free2-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-free2'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-free3-bold'></span>
+                                </li>
+                            </ul>
+                            <div class="tariff__button-block">
+                                <a href="http://bit.ly/2sKczo9" class="tariff__button tariff__button_green button" data-i18n='tariff-button-free'></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tariff tariff_orange">
+                        <h3 class="tariff__title" data-i18n='tariff-title-basic'></h3>
+                        <p class="tariff__offer" data-i18n='tariff-offer-basic'></p>
+                        <div class="tariff__price-block tariff__price_orange">
+                            <span class="tariff__price" data-i18n='tariff-price-basic'></span><span class="tariff__price tariff__price_small" data-i18n='tariff-price-small-basic'></span>
+                            <div class="tariff__period" data-i18n='tariff-period'></div>
+                        </div>
+                        <div class="tariff__line"></div>
+                        <input class="tariff__switch" type="checkbox" tabindex="-1">
+                        <div class="tariff__content">
+                            <div class="tariff__details-block tariff__arrow_close">
+                                <span class="tariff__details"  data-i18n='tariff-details'></span>
+                                <div class="tariff__arrow tariff__close"></div>
+                            </div>
+                            <div class="tariff__details-block tariff__arrow_open">
+                                <span class="tariff__details"  data-i18n='tariff-details'></span>
+                                <div class="tariff__arrow tariff__open"></div>
+                            </div>
+                            <ul class="tariff__list">
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-basic1-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-basic1'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-basic2-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-basic2'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-basic3-bold'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text" data-i18n='tariff-text-basic4-bold'></span>
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-basic4'></span>
+                                </li>
+                            </ul>
+                            <div class="tariff__button-block">
+                                <a href="http://bit.ly/2sKczo9" class="tariff__button tariff__button_orange button" data-i18n='tariff-button-pay'></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tariff tariff_blue">
+                        <h3 class="tariff__title" data-i18n='tariff-title-advanced'></h3>
+                        <p class="tariff__offer" data-i18n='tariff-offer-advanced'></p>
+                        <div class="tariff__price-block tariff__price_blue">
+                            <span class="tariff__price" data-i18n='tariff-price-advanced'></span><span class="tariff__price tariff__price_small" data-i18n='tariff-price-small-advanced'></span>
+                            <div class="tariff__period" data-i18n='tariff-period'></div>
+                        </div>
+                        <div class="tariff__line"></div>
+                        <input class="tariff__switch" type="checkbox" tabindex="-1">
+                        <div class="tariff__content">
+                            <div class="tariff__details-block tariff__arrow_close">
+                                <span class="tariff__details"  data-i18n='tariff-details'></span>
+                                <div class="tariff__arrow tariff__close"></div>
+                            </div>
+                            <div class="tariff__details-block tariff__arrow_open">
+                                <span class="tariff__details"  data-i18n='tariff-details'></span>
+                                <div class="tariff__arrow tariff__open"></div>
+                            </div>
+                            <ul class="tariff__list">
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-advanced1-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-advanced1'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-advanced2-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-advanced2'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-advanced3-bold'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text" data-i18n='tariff-text-advanced4-bold'></span>
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-advanced4'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-advanced5-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-advanced5'></span>
+                                </li>
+                            </ul>
+                            <div class="tariff__button-block">
+                                <a href="http://bit.ly/2sKczo9" class="tariff__button tariff__button_blue button" data-i18n='tariff-button-pay'></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tariff tariff_purple">
+                        <h3 class="tariff__title" data-i18n='tariff-title-enterprise'></h3>
+                        <p class="tariff__offer" data-i18n='tariff-offer-enterprise'></p>
+                        <div class="tariff__price-block tariff__price_purple">
+                            <span class="tariff__price" data-i18n='tariff-price-enterprise'></span><span class="tariff__price tariff__price_small" data-i18n='tariff-price-small-enterprise'></span>
+                            <div class="tariff__period" data-i18n='tariff-period'></div>
+                        </div>
+                        <div class="tariff__line"></div>
+                        <input class="tariff__switch" type="checkbox" tabindex="-1">
+                        <div class="tariff__content">
+                            <div class="tariff__details-block tariff__arrow_close">
+                                <span class="tariff__details"  data-i18n='tariff-details'></span>
+                                <div class="tariff__arrow tariff__close"></div>
+                            </div>
+                            <div class="tariff__details-block tariff__arrow_open">
+                                <span class="tariff__details"  data-i18n='tariff-details'></span>
+                                <div class="tariff__arrow tariff__open"></div>
+                            </div>
+                            <ul class="tariff__list">
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-enterprise1-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-enterprise1'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-enterprise2-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-enterprise2'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-enterprise3-bold'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text" data-i18n='tariff-text-enterprise4-bold'></span>
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-enterprise4'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-enterprise5-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-enterprise5'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-enterprise6-bold'></span>
+                                    <span class="tariff__text" data-i18n='tariff-text-enterprise6'></span>
+                                </li>
+                                <li class="tariff__item">
+                                    <span class="tariff__text tariff__text_bold" data-i18n='tariff-text-enterprise7-bold'></span>
+                                </li>
+                            </ul>
+                            <div class="tariff__button-block">
+                                <a href="http://bit.ly/2sKczo9" class="tariff__button tariff__button_purple button" data-i18n='tariff-button-pay'></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="questions">
+        <div class="container">
+            <div class="col-xl-12">
+                <div class="questions__content">
+                    <div class="questions__heading">
+                        <h2 class="questions__title" data-i18n='questions-title'></h2>
+                        <p class="questions__text" data-i18n='questions-text'></p>
+                    </div>
+                    <div class="questions__field">
+                        <input type="email" name="email" class="questions__input" placeholder="Enter email">
+                    </div>
+                    <div class="questions__button-block">
+                        <a href="mailto:admin@linkedator.com?Subject=Question"
+                           class="questions__button button" data-i18n='questions-button'></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="col-xl-12">
+                <div class="footer__boxes">
+                    <div class="footer__box">
+                        <h3 class="footer__subtitle" data-i18n='footer-subtitle-need'></h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="mailto:admin@linkedator.com?subject=Contact%20us" class="footer__link" data-i18n='footer-link-need1'></a>
+                            </li>
+                            <li class="footer__item" data-i18n='footer-item-need2'>
+                                <a href="http://bit.ly/2sKczo9" class="footer__link" data-i18n='footer-link-need2'></a>
+                            </li>
+                            <li class="footer__item" data-i18n='footer-item-need3'>
+                                <a href="https://app.linkedator.com/faq?dontShowBack=true" target="_blank" class="footer__link" data-i18n='footer-link-need3'></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__box footer__box_about">
+                        <h3 class="footer__subtitle" data-i18n='footer-subtitle-about'></h3>
+                        <ul class="footer__list">
+                            <li class="footer__item">
+                                <a href="https://app.linkedator.com/privacy-policy?dontShowBack=true" target="_blank" class="footer__link" data-i18n='footer-link-about1'></a>
+                            </li>
+                            <li class="footer__item" data-i18n='footer-item-need2'>
+                                <a href="https://app.linkedator.com/terms-of-use?dontShowBack=true" target="_blank" class="footer__link" data-i18n='footer-link-about2'></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__box footer__box_language">
+                        <h3 class="footer__subtitle" data-i18n='footer-subtitle-language'></h3>
+                        <ul class="footer__list" id="switchLanguage">
+                            <li class="footer__item">
+                                <span id="english" class="footer__language footer__language_en" data-i18n='footer-item-language1'></span>
+                            </li>
+                            <li class="footer__item">
+                                <span id="russian" class="footer__language footer__language_ru" data-i18n='footer-item-language2'></span>
+                            </li>
+                            <select id="selectLanguage" class="language">
+                                <option id="en" value="en"></option>
+                                <option id="ru" value="ru"></option>
+                            </select>
+                        </ul>
+                    </div>
+                    <div class="footer__copyright">
+                        <a href="http://bit.ly/2sKczo9" class="button button_try-for-free" data-i18n='button-try-for-free'><a/>
+                        <p class="footer__text" data-i18n='footer-text'></p>
+                        <div class="footer__year" data-i18n='footer-year'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="cookies">
+        <div class="container">
+            <div class="col-xl-12">
+                <div class="cookies__content">
+                    <div class="cookies__offer">
+                        <div class="cookies__text" data-i18n='cookies-offer'></div>
+                        <a href="https://app.linkedator.com/privacy-policy?dontShowBack=true" target="_blank" class="cookies__link" data-i18n='cookies-link'></a>
+                    </div>
+                    <span class="close"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="assets/scripts/jquery.min.js?v=1"></script>
+<script src="assets/scripts/slick.min.js?v=1"></script>
+<script src="assets/scripts/viewportchecker.js?v=1"></script>
+<script src="assets/scripts/main.js?v=1"></script>
+</body>
+</html>
