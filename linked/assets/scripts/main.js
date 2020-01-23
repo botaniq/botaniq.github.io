@@ -39,17 +39,17 @@ function setCookie(value) {
 }
 
 function setUserCookie() {
-    let isUserLanguage = getCookie('Language');
-    if (isUserLanguage) {
-        document.getElementById(isUserLanguage).selected = true;
-    } else {
+//     let isUserLanguage = getCookie('Language');
+//     if (isUserLanguage) {
+//         document.getElementById(isUserLanguage).selected = true;
+//     } else {
         let preferredLanguage = navigator.language.toLowerCase();
         if (~preferredLanguage.indexOf('ru') || ~preferredLanguage.indexOf('uk')) {
             document.getElementById('ru').selected = true;
         } else {
             document.getElementById('en').selected = true;
         }
-    }
+//     }
 }
 
 function setLanguage(lang, select) {
