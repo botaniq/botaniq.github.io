@@ -1,12 +1,19 @@
 .menu--3tJFo {
     display: flex;
     margin-top: 50px;
-    margin-left: 30px;
+    margin-left: 8px;
 }
 
 .menu__input--2HlGO {
     margin: 0 10px;
-    padding: 0 10px;
+    padding: 0 15px;
+
+    background: #f3f3f3;
+    border: none;
+}
+
+.menu__input--2HlGO::placeholder {
+    color: #8b9ba0;
 }
 
 .button--XzpTs {
@@ -14,13 +21,49 @@
 }
 
 
+
+@media (max-width: 576px) { 
+    .menu--3tJFo {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu__input--2HlGO {
+        margin: 20px 0;
+        height: 38px;
+        width: 180px;
+    }
+
+}
 .winners--13JtB {
     margin-top: 50px;
+    width: 400px;
+}
+
+.winners__item--39ISo {
+    flex-wrap: wrap;
+    font-family: 'Lato', sans-serif;
 }
 
 .title--1B9Ml {
     color: #9e9c9c;
     margin-bottom: 25px;
+}
+
+
+@media (max-width: 992px) { 
+    .title--1B9Ml {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 576px) { 
+    .winners--13JtB {
+        width: 100%;
+    }
+
 }
 .field--1wvLY {
     width: 30px;
@@ -29,16 +72,16 @@
 }
 
 .field_gray--2nXiY{
-    background: lightblue;
+    background: #42d8e8;
     cursor: pointer;
 }
 
 .field_red--3jhay{
-    background: lightcoral;
+    background: #e85a5f;
 }
 
 .field_green--3ydnY{
-    background: lightgreen;
+    background: #00e871;
 }
 
 .board--3Cesh {
@@ -48,11 +91,21 @@
 .table--3Lcqm {
     margin: 0 auto;
 }
+
+
+@media (max-width: 576px) { 
+    .board--3Cesh {
+        width: 100%;
+    }
+
+}
 .message--28brp {
     width: 500px;
-    margin: 25px 0;
-    text-align: center;
     height: 30px;
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: center;
+    color: #909090;
 }
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -95,3 +148,4 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
