@@ -13,7 +13,7 @@ function setUserCookie() {
 
     let modalLanguage = document.getElementById('modal-language');
 
-    let isUserLanguage = getCookie('Language');
+    let isUserLanguage = getCookie('Lang');
 
     console.log(isUserLanguage);
 
