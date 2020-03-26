@@ -48,7 +48,7 @@ function getCookie(name) {
 }
 
 function setLanguage(lang, modal) {
-    setCookie(`Language=${lang}; expires=${cookieExpireDate}`);
+    setCookie(`Lang=${lang}; expires=${cookieExpireDate}`);
 
     if (lang === 'ru') {
         document.location.href = 'https://sewingbox.com.ua/ru';
