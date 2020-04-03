@@ -36,9 +36,9 @@
 
             render() {
                 return (
-                    <div>
+                    <React.Fragment>
                         {this.state.html}
-                    </div>
+                    </React.Fragment>
                 );
             }
         }
@@ -55,6 +55,12 @@
         setTimeout(() => {
             updateComponent(newJSX);
         }, 5000);
+
+
+        setTimeout(() => {
+            // clear
+            updateComponent();
+        }, 10000);
 
     </script>
 </body>
