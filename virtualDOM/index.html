@@ -3,22 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        /*#root {*/
-        /*    border: 1px solid black;*/
-        /*    padding: 10px;*/
-        /*    margin: 30px 0 0 0;*/
-        /*}*/
-    </style>
 </head>
 <body>
-<!--    <button id="reload">RELOAD</button>-->
     <div id="root"></div>
 
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script src="ReactHtmlParser.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="ReactHtmlParser.js"></script>
     <script type="text/babel">
         let oldHTML = '<div>item 1</div><div>item 2</div><div>item 3</div>';
         let newHTML = '<div>item 3</div><div>item 2</div><div>item 1</div>';
@@ -27,33 +19,22 @@
         let newJSX = ReactHtmlParser(newHTML);
 
         const $root = document.getElementById('root');
-
-        console.log(oldJSX);
-
+        
         class Markup extends React.Component {
             constructor(props) {
                 super(props);
 
                 this.state = {
-                    html: oldJSX
+                    html: props.html
                 };
-
-                this.updateHTML = this.updateHTML.bind(this);
             }
 
-            updateHTML() {
-                this.setState(state => ({
-                    html: newJSX
-                }));
+            static getDerivedStateFromProps(props, state) {
+                state.html = props.html;
+                return props;
             }
 
             render() {
-                setTimeout(() => {
-                    console.log('UPDATE');
-                    this.updateHTML();
-                }, 5000);
-
-
                 return (
                     <div>
                         {this.state.html}
@@ -62,13 +43,18 @@
             }
         }
 
+        function updateComponent(jsx) {
+            ReactDOM.render(
+                <Markup html={jsx}/>,
+                $root
+            );
+        }
 
+        updateComponent(oldJSX);
 
-        ReactDOM.render(
-            <Markup/>,
-            $root
-        );
-
+        setTimeout(() => {
+            updateComponent(newJSX);
+        }, 5000);
 
     </script>
 </body>
