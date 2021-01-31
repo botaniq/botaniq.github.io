@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio</title>
-    <link rel="icon" href="./assets/images/contact.ico">
+    <link rel="icon" href="./assets/images/js.ico">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&amp;subset=cyrillic" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,500,600,700" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700&amp;subset=cyrillic" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Podkova:400,500,600,700&amp;subset=cyrillic" rel="stylesheet">
-<link href="assets/scripts/../styles/main.css" rel="stylesheet"></head>
+    <link href="./assets/styles/main.css" rel="stylesheet">
+</head>
 <body>
     <section class="first-screen">
         <header class="header">
@@ -32,23 +30,20 @@
                             </div>
                             <ul class="menu__list">
                                 <li class="menu__item">
-                                    <a href="#project" class="menu__link" data-text="menu__link1"></a>
-                                </li>
-                                <li class="menu__item">
-                                    <a href="#landing" class="menu__link" data-text="menu__link2"></a>
+                                    <a href="#react" class="menu__link" data-text="menu__link4"></a>
                                 </li>
                                 <li class="menu__item">
                                     <a href="#js" class="menu__link" data-text="menu__link3"></a>
                                 </li>
                                 <li class="menu__item">
-                                    <a href="#react" class="menu__link" data-text="menu__link4"></a>
+                                    <a href="#landing" class="menu__link" data-text="menu__link2"></a>
                                 </li>
                                 <li class="menu__item">
                                     <a href="#contacts" class="menu__link" data-text="menu__link5"></a>
                                 </li>
                             </ul>
                             <div class="language language-element">
-                                <img src="assets/images/globe.svg" alt="language" class="language__icon">
+                                <img src="./assets/images/globe.svg" alt="language" class="language__icon">
                                 <ul class="language__list">
                                     <li class="language__item" id="en">English</li>
                                     <li class="language__item" id="ru">Русский</li>
@@ -65,33 +60,13 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="title">
-                            <h1>Front-end development ☻ </h1>
+                            <h1>Web development ☻ </h1>
                             <p>
                                 <span data-text="title__text1"></span>
                                 <br>
                                 <span data-text="title__text2"></span>
                             </p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="show"  id="js">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <h2 class="show__title">JS</h2>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="show__box">
-                        <a href="https://botaniq.github.io/todolist" target="_blank" class="show__link">
-                            <img src="assets/images/todolist.jpg" alt="todolist" class="show__img">
-                        </a>
-                        <p class="show__text" data-text="todolist"></p>
                     </div>
                 </div>
             </div>
@@ -108,8 +83,23 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="show__box">
+                        <a href="https://botaniq.github.io/gameindots" target="_blank" class="show__link show__img-code">
+                            <img src="./assets/images/gameindots.jpg" alt="gameindots" class="show__img ">
+                        </a>
+                        <p class="show__text" data-text="gameindots"></p>
+                        <code class="code">
+                            <a href="https://bitbucket.org/botaniqyes/game-in-dots/src/master/" target="_blank" class="show__link">
+                                <code class="code-purple">function</code> <code class="code-blue">gameInDots()</code> {
+                                    <code class="code-purple">return</code> <code class="code-green">'source code'</code>;
+                                }
+                            </a>
+                        </code>
+                    </div> 
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="show__box">
                         <a href="https://botaniq.github.io/weatherApp" target="_blank" class="show__link">
-                            <img src="assets/images/weatherApp.jpg" alt="weatherApp" class="show__img">
+                            <img src="./assets/images/weatherApp.jpg" alt="weatherApp" class="show__img">
                         </a>
                         <p class="show__text" data-text="wheatherApp"></p>
                     </div> 
@@ -117,6 +107,27 @@
             </div>
         </div>
     </section>
+    <section class="show"  id="js">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h2 class="show__title">JS</h2>
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="show__box">
+                        <a href="https://botaniq.github.io/todolist" target="_blank" class="show__link">
+                            <img src="./assets/images/todolist.jpg" alt="todolist" class="show__img">
+                        </a>
+                        <p class="show__text" data-text="todolist"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="show"  id="ionic">
         <div class="container">
             <div class="row">
@@ -129,7 +140,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="show__box">
                         <a href="https://play.google.com/store/apps/details?id=io.horotonic.app&hl=uk" target="_blank" class="show__link">
-                            <img src="assets/images/horotonic.jpg" alt="horotonic" class="show__img">
+                            <img src="./assets/images/horotonic.jpg" alt="horotonic" class="show__img">
                         </a>
                         <p class="show__text" data-text="horotonic"></p>
                     </div> 
@@ -148,92 +159,18 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="show__box">
-                        <a href="https://botaniq.github.io/soundmode" target="_blank" class="show__link">
-                            <img src="assets/images/soundmode.jpg" alt="soundMode" class="show__img">
+                        <a href="https://botaniq.github.io/linked" target="_blank" class="show__link">
+                            <img src="./assets/images/Linkedator.jpg" alt="Linkedator" class="show__img">
                         </a>
-                        <p class="show__text" data-text="soundMode"></p>
+                        <p class="show__text" data-text="linkedator"></p>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="show__box">
                         <a href="https://botaniq.github.io/Empire" target="_blank" class="show__link">
-                            <img src="assets/images/empire.jpg" alt="empire" class="show__img">
+                            <img src="./assets/images/empire.jpg" alt="empire" class="show__img">
                         </a>
                         <p class="show__text" data-text="empire"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="show__box">
-                        <a href="https://botaniq.github.io/handart" target="_blank" class="show__link">
-                            <img src="assets/images/handArt.jpg" alt="handArt" class="show__img">
-                        </a>
-                        <p class="show__text" data-text="handArt"></p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="show__box">
-                        <a href="https://botaniq.github.io/linked" target="_blank" class="show__link">
-                            <img src="assets/images/Linkedator.jpg" alt="Linkedator" class="show__img">
-                        </a>
-                        <p class="show__text" data-text="linkedator"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="show__box">
-                        <a href="https://botaniq.github.io/dreams" target="_blank" class="show__link">
-                            <img src="assets/images/dreams.jpg" alt="dreams" class="show__img">
-                        </a>
-                        <p class="show__text" data-text="dreams"></p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="show__box">
-                        <a href="https://botaniq.github.io/take" target="_blank" class="show__link">
-                            <img src="assets/images/take.jpg" alt="take" class="show__img">
-                        </a>
-                        <p class="show__text" data-text="take"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                  <div class="show__box">
-                      <a href="https://botaniq.github.io/newprovidance" target="_blank" class="show__link">
-                          <img src="assets/images/newprovidance.jpg" alt="newProvidance" class="show__img">
-                      </a>
-                      <p class="show__text" data-text="newProvidance"></p>
-                  </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="show__box">
-                        <a href="https://botaniq.github.io/computergenius" target="_blank" class="show__link">
-                            <img src="assets/images/computergenius.jpg" alt="computerGenius" class="show__img">
-                        </a>
-                        <p class="show__text" data-text="computerGenius"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="show" id="project">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <h2 class="show__title" data-text="show__title1"></h2>
-                    <hr>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="show__box">
-                       <a href="" target="_blank" class="show__link">
-                           <!-- <img src="./assets/images/" alt="" class="show__img"> -->
-                       </a>
-                       <p class="show__text" data-text="developing"></p>
                     </div>
                 </div>
             </div>
@@ -242,7 +179,7 @@
     <footer class="footer" id="contacts">
         <div class="container">
             <div class="row">
-                <div class="col-xl-8 offset-xl-2">
+                <div class="col-xl-12">
                     <h2 class="footer__title" data-text="contacts">
                     </h2>
                     <ul class="contact">
@@ -251,6 +188,9 @@
                                 <i class="fab fa-github"></i>
                                 GitHub
                             </a>
+                        </li>
+                        <li class="contact__item">
+                            <a href="https://freelancehunt.com/freelancer/botaniq.html?from=shield&r=DGevm" target="_blank"><img src="https://freelancehunt.com/shields/display/id/507164/type/rating?style=flat&amp;lang=uk" alt="Freelancehunt.com — простий та чесний фріланс"></a>
                         </li>
                         <li class="contact__item">
                             <a class="contact__link" href="https://www.linkedin.com/in/vladyslav-rokhmaniuk-b45871138/" target="_blank">
@@ -276,12 +216,12 @@
             <div class="row">
                 <div class="col-xl-10 offset-xl-1">
                     <div class="footer__copyright">
-                        Developed by botaniqyes <br>
-                        © 2019
+                        © 2020
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 <script type="text/javascript" src="assets/scripts/main.js"></script></body>
+</body>
 </html>
