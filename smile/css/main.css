@@ -117,6 +117,10 @@ button {
 
 @media (max-width: 576px) {
   .buttons__btn {
-  	width: 30%;
+  	width: 21%;
   }
+
+	.buttons_send {
+		flex-direction: column;
+	}
 }

@@ -231,6 +231,18 @@ function drawStuff() {
       ctx.stroke();
     }
   });
+
+	$("#canvas").on("touchmove", function(event) {
+		if(down) {
+			ctx.beginPath();
+			var index = Math.floor(Math.random() * colors.length - 1);
+			ctx.strokeStyle = colors[index];
+			ctx.arc(event.pageX, event.pageY, 3, 0, Math.PI * 2, false);
+			ctx.stroke();
+		}
+	});
+
+
 }
 
 function getImage(canvas){
