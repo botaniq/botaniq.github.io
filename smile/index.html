@@ -9,7 +9,18 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+	<div class="header">
+		<div class="header__box">
+			<input type="color" value="#FFD700"  class="js-color-picker  color-picker">
+		</div>
+		<div class="header__box">
+			<input type="range" class="js-line-range" min="1" max="72" value="8">
+			<label class="js-range-value">8</label>Px
+		</div>
+	</div>
+
 	<canvas id="canvas" width="600" height="600" > </canvas>
+
 	<div class="buttons">
 		<button id="reset" type="button" class="buttons__btn buttons_top">Очистити</button>
 		<button type="button" class="buttons__btn buttons_center" onclick="changeColor()">Змінити колір</button>

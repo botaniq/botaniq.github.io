@@ -1,4 +1,4 @@
-(function() {
+
 	// Get a regular interval for drawing to the screen
 	window.requestAnimFrame = (function (callback) {
 		return window.requestAnimationFrame ||
@@ -14,11 +14,29 @@
 	var canvas = document.getElementById("canvas");
 
 	var ctx = canvas.getContext("2d");
-	ctx.strokeStyle = "green";
+	ctx.strokeStyle = "#e66465";
 	ctx.lineWith = 5;
 
 
+	let drawColor = "gold";
+	let drawLineWidth = 8;
 
+	var colorPicker = document.querySelector( '.js-color-picker');
+
+	colorPicker.addEventListener( 'change', event => {
+		ctx.strokeStyle = event.target.value;
+		drawColor = event.target.value;
+	} );
+
+	const lineWidthRange = document.querySelector( '.js-line-range' );
+	const lineWidthLabel = document.querySelector( '.js-range-value' );
+
+	lineWidthRange.addEventListener( 'input', event => {
+		const width = event.target.value;
+		lineWidthLabel.innerHTML = width;
+		ctx.lineWidth = width;
+		drawLineWidth = width;
+	} );
 
 // Set up mouse events for drawing
 	var drawing = false;
@@ -98,8 +116,8 @@
 	function renderCanvas() {
 		if (drawing) {
 			ctx.beginPath();
-			ctx.lineWidth = 5;
-			ctx.strokeStyle = "gold";
+			ctx.lineWidth = drawLineWidth;
+			ctx.strokeStyle = drawColor;
 			ctx.moveTo(lastPos.x, lastPos.y);
 			ctx.lineTo(mousePos.x, mousePos.y);
 			ctx.stroke();
@@ -169,7 +187,6 @@
 
 
 
-})();
 
 
 

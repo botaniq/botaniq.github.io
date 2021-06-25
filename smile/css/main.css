@@ -12,6 +12,12 @@ body {
   overflow-x: hidden;
 }
 
+.header {
+	display: flex;
+	justify-content: space-between;
+	margin: 15px 25px 15px 0;
+}
+
 #canvas {
 	box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 	margin: 0px;
