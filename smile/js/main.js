@@ -44,25 +44,25 @@
 	var lastPos = mousePos;
 
 	canvas.addEventListener("mousedown", function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		drawing = true;
 		lastPos = getMousePos(canvas, e);
 	}, false);
 	canvas.addEventListener("mouseup", function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		drawing = false;
 	}, false);
 	canvas.addEventListener("mousemove", function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		mousePos = getMousePos(canvas, e);
 	}, false);
 
 // Set up touch events for mobile, etc
 	canvas.addEventListener("touchstart", function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		mousePos = getTouchPos(canvas, e);
 		var touch = e.touches[0];
@@ -73,7 +73,7 @@
 		canvas.dispatchEvent(mouseEvent);
 	}, false);
 	canvas.addEventListener("touchend", function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		var mouseEvent = new MouseEvent("mouseup", {});
 		canvas.dispatchEvent(mouseEvent);
