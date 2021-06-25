@@ -91,14 +91,14 @@
 
 // Prevent scrolling when touching the canvas
 	document.body.addEventListener("touchstart", function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		if (e.target == canvas) {
 			e.preventDefault();
 		}
 	}, false);
 	document.body.addEventListener("touchend", function (e) {
-		e.preventDefault();
+		// e.preventDefault();
 
 		if (e.target == canvas) {
 			e.preventDefault();
