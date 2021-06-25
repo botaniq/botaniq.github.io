@@ -202,19 +202,19 @@ resizeCanvas();
 function drawStuff() {
   var down = false;
 
-  if ('ontouchstart' in window) {
-    /* browser with Touch Events support */
-    $("#canvas").click(function(event) {
-      ctx.beginPath();
-
-      var index = Math.floor(Math.random() * colors.length - 1);
-
-      ctx.strokeStyle = colors[index];
-      console.log(colors[index]);
-      ctx.arc(event.pageX, event.pageY, 3, 0, Math.PI * 2, false);
-      ctx.stroke();
-    });
-  }
+  // if ('ontouchstart' in window) {
+  //   /* browser with Touch Events support */
+  //   $("#canvas").click(function(event) {
+  //     ctx.beginPath();
+	//
+  //     var index = Math.floor(Math.random() * colors.length - 1);
+	//
+  //     ctx.strokeStyle = colors[index];
+  //     console.log(colors[index]);
+  //     ctx.arc(event.pageX, event.pageY, 3, 0, Math.PI * 2, false);
+  //     ctx.stroke();
+  //   });
+  // }
 
   $(document).mousedown(function() {
     down = true;
@@ -231,6 +231,12 @@ function drawStuff() {
       ctx.stroke();
     }
   });
+
+	$(document).on("touchstart",function() {
+		down = true;
+	}).on("touchend", function() {
+		down = false;
+	});
 
 	$("#canvas").on("touchmove", function(event) {
 		if(down) {
