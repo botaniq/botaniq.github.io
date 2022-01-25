@@ -1,0 +1,46 @@
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+.badge {
+    position: relative;
+    top: -24px;
+    margin-left: -82px;
+    left: 80px;
+    padding: 0.25em 0.45em;
+    font-size: .45em;
+}
+
+.alert {
+    text-align: center;
+    font-size: 22px;
+}
+
+.alert-success {
+    font-weight: bold;
+    font-family: 'Mochiy Pop P One', sans-serif;
+
+}
+
+.alert-primary {
+    font-style: italic;
+    font-family: 'Indie Flower', cursive;
+}
+
+.btn-success {
+    margin-top: 1rem;
+    font-size: 22px;
+    margin-bottom: 1rem;
+}
