@@ -41,4 +41,18 @@ h1 {
   display: block;
 }
 
+@media (max-width: 768px) {
+  #clear, #decipher {
+    margin-bottom: 15px;
+  }
+
+  .buttons-left {
+    width: 100px;
+  }
+
+  .buttons-right {
+    width: 135px;
+  }
+}
+
 /*# sourceMappingURL=index.4d663569.css.map */
